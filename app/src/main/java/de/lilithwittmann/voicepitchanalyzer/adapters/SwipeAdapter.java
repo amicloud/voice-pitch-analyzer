@@ -1,3 +1,4 @@
+
 package de.lilithwittmann.voicepitchanalyzer.adapters;
 
 import android.content.Context;
@@ -37,6 +38,7 @@ public class SwipeAdapter extends RecyclerView.Adapter<SwipeAdapter.SwipeViewHol
     private SwipeViewHolder viewHolder;
     private Recording deletedRecord;
     private int itemPosition;
+    private final int SNACK_DURATION = 5000;
 
     public SwipeAdapter(Context context, RecordingListActivity activity, List<Recording> list)
     {
@@ -127,8 +129,10 @@ public class SwipeAdapter extends RecyclerView.Adapter<SwipeAdapter.SwipeViewHol
             }
         };
 
+
+
         Snackbar
-                .make(coordinatorLayoutView, R.string.record_deleted, Snackbar.LENGTH_LONG)
+                .make(coordinatorLayoutView, R.string.record_deleted, SNACK_DURATION)
                 .setAction(R.string.undo, clickListener)
                 .setActionTextColor(this.activity.getResources().getColor(R.color.canvas_light))
                 .setCallback(new Snackbar.Callback()
